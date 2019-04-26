@@ -4,5 +4,10 @@ project(FinalProject)
 
 set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
 
-set(SOURCE_FILES main.c level.c room.c player.c pathfinding.c queue.h utils.h wretch.h )
+find_package(Curses REQUIRED)
+
+include_directories(${CURSES_INCLUDE_DIR})
+
+set(SOURCE_FILES main.c level.c room.c player.c )
 add_executable(FinalProject ${SOURCE_FILES})
+target_link_libraries(FinalProject ${CURSES_LIBRARIES})
